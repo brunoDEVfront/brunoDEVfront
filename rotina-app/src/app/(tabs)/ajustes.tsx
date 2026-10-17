@@ -1,7 +1,7 @@
 import * as Notifications from 'expo-notifications';
 import { useFocusEffect } from 'expo-router';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Alert, Pressable, ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
+import { Alert, Platform, Pressable, ScrollView, StyleSheet, Switch, Text, View } from 'react-native';
 
 import { usePermissoes } from '../../components/AvisoPermissoes';
 import { Botao, Cartao, Chip, TituloSecao, estilos as ui } from '../../components/ui';
@@ -81,10 +81,12 @@ export default function AjustesScreen() {
 
   return (
     <ScrollView style={ui.tela} contentContainerStyle={ui.conteudo}>
-      {rodandoNoExpoGo && (
+      {(rodandoNoExpoGo || Platform.OS === 'web') && (
         <View style={estilos.expoGo}>
           <Text style={estilos.expoGoTexto}>
-            Você está no Expo Go: os sons de alarme personalizados e o modo despertador só funcionam no APK instalado.
+            {Platform.OS === 'web'
+              ? 'Prévia no navegador: os ajustes ficam salvos, mas notificações, sons e permissões só funcionam no app Android.'
+              : 'Você está no Expo Go: os sons de alarme personalizados e o modo despertador só funcionam no APK instalado.'}
           </Text>
         </View>
       )}

@@ -1,6 +1,6 @@
 import { useFocusEffect } from 'expo-router';
 import { useCallback, useEffect, useState } from 'react';
-import { AppState, StyleSheet, Text, View } from 'react-native';
+import { AppState, Platform, StyleSheet, Text, View } from 'react-native';
 
 import {
   abrirConfiguracoesDoApp,
@@ -31,6 +31,15 @@ export function usePermissoes() {
 export function AvisoPermissoes() {
   const { dados } = useApp();
   const { status, atualizar } = usePermissoes();
+  if (Platform.OS === 'web') {
+    return (
+      <View style={[estilos.caixa, estilos.web]}>
+        <Text style={[estilos.texto, estilos.webTexto]}>
+          Prévia no navegador: as notificações e os alarmes só funcionam no app instalado no Android.
+        </Text>
+      </View>
+    );
+  }
   if (!status || (status.notificacoes && status.alarmesExatos)) return null;
 
   const liberarNotificacoes = async () => {
@@ -71,4 +80,6 @@ const estilos = StyleSheet.create({
   titulo: { fontSize: 16, fontWeight: '800', color: '#92400E', marginBottom: 4 },
   texto: { fontSize: 14, color: '#78350F', marginBottom: 10 },
   botao: { marginTop: 2 },
+  web: { backgroundColor: '#E0F2FE', borderColor: '#BAE6FD' },
+  webTexto: { color: '#075985', marginBottom: 0 },
 });
