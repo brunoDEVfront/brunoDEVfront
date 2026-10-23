@@ -1,28 +1,29 @@
 /* ==========================================================
-   Artur · Barbearia
-   Paleta: parede verde-garrafa, folha de ouro, marfim e o
-   vermelho do poste de barbearia (usado com moderação).
+   Vintage Salon · Artur Almeida
+   Paleta: preto quente, folha de ouro e marfim, com o
+   vermelho do poste de barbearia usado com moderação.
    ========================================================== */
 
 :root {
-  --verde: #14322a;
-  --verde-fundo: #0e241e;
-  --verde-linha: #2a4a40;
-  --marfim: #ebe1c9;
-  --marfim-suave: #bfb69f;
-  --papel: #efe6cf;
+  --preto: #100e0c;
+  --carvao: #181411;
+  --linha: #3a3128;
+  --marfim: #efe6d4;
+  --marfim-suave: #b8ac97;
+  --papel: #efe6d4;
   --papel-linha: #cdbf9c;
-  --tinta: #1d1712;
+  --tinta: #1a1511;
   --tinta-suave: #5b4f42;
-  --ouro: #d0a74f;
+  --ouro: #cfa555;
   --ouro-claro: #ecd08a;
-  --sangue: #8c2b23;
+  --sangue: #8a2c22;
 
-  --letra-titulo: "Ultra", "Rockwell Extra Bold", Georgia, serif;
+  --letra-titulo: "Bodoni Moda", "Didot", Georgia, serif;
   --letra-script: "Yellowtail", "Brush Script MT", cursive;
   --letra-texto: "Libre Franklin", "Franklin Gothic", system-ui, sans-serif;
 
   --largura: 1120px;
+  --altura-topo: 72px;
   --respiro: clamp(72px, 10vw, 128px);
 }
 
@@ -34,13 +35,13 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: var(--altura-topo);
   -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
-  background: var(--verde);
+  background: var(--preto);
   color: var(--marfim);
   font-family: var(--letra-texto);
   font-size: 1.0625rem;
@@ -55,7 +56,7 @@ body::after {
   inset: 0;
   z-index: 100;
   pointer-events: none;
-  opacity: 0.07;
+  opacity: 0.08;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
 }
 
@@ -115,16 +116,17 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 52px;
-  padding: 0 28px;
+  min-height: 54px;
+  padding: 0 30px;
   background: var(--ouro);
   color: var(--tinta);
   font-family: var(--letra-texto);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   text-decoration: none;
+  white-space: nowrap;
   border-radius: 2px;
   /* filete duplo, como nos rótulos impressos */
   box-shadow: inset 0 0 0 3px var(--ouro), inset 0 0 0 4px var(--tinta);
@@ -142,10 +144,9 @@ a {
 
 .botao--compacto {
   min-height: 42px;
-  padding: 0 16px;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  white-space: nowrap;
+  padding: 0 18px;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
 }
 
 .link {
@@ -182,7 +183,7 @@ a {
 .titulo {
   margin: 0;
   font-family: var(--letra-titulo);
-  font-weight: 400;
+  font-weight: 800;
   font-size: clamp(2rem, 1.3rem + 3vw, 3.5rem);
   line-height: 1.05;
   text-transform: uppercase;
@@ -209,9 +210,9 @@ a {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgb(14 36 30 / 0.92);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--verde-linha);
+  background: rgb(16 14 12 / 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgb(207 165 85 / 0.22);
 }
 
 .topo__inner {
@@ -219,29 +220,39 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  min-height: 68px;
+  min-height: var(--altura-topo);
 }
 
 .marca {
   display: flex;
-  align-items: baseline;
-  gap: 10px;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
 }
 
-.marca__nome {
-  font-family: var(--letra-script);
-  font-size: 2rem;
-  line-height: 1;
+.marca__selo {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--ouro);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 3px var(--preto), inset 0 0 0 4px rgb(207 165 85 / 0.5);
+  font-family: var(--letra-titulo);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: -0.02em;
   color: var(--ouro);
 }
 
-.marca__oficio {
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.28em;
+.marca__nome {
+  font-family: var(--letra-titulo);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--marfim-suave);
+  color: var(--marfim);
 }
 
 .menu {
@@ -250,16 +261,16 @@ a {
 
 .menu ul {
   display: flex;
-  gap: 32px;
+  gap: 36px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .menu a {
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--marfim-suave);
@@ -276,35 +287,73 @@ a {
   }
 }
 
-@media (max-width: 400px) {
-  .marca__oficio {
-    display: none;
-  }
-}
-
-/* ---------- início: a vitrine ---------- */
+/* ---------- início: a vitrine ----------
+   A foto de fundo é img/capa.jpg. Enquanto ela não existir,
+   fica só o fundo escuro. Para ajustar o enquadramento da foto,
+   mude --capa-posicao (ex.: "center top", "60% 30%"). */
 
 .inicio {
-  padding-block: clamp(32px, 6vw, 72px) clamp(56px, 8vw, 96px);
+  --capa-posicao: center 30%;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  align-items: center;
+  min-height: calc(100vh - var(--altura-topo));
+  min-height: calc(100svh - var(--altura-topo));
+  padding-block: 48px;
+  overflow: hidden;
   background:
-    radial-gradient(ellipse 70% 60% at 50% 35%, rgb(208 167 79 / 0.1), transparent 70%),
-    var(--verde);
+    radial-gradient(ellipse 60% 55% at 50% 45%, rgb(207 165 85 / 0.12), transparent 70%),
+    var(--preto);
+}
+
+/* a foto, com tratamento de foto antiga para qualquer imagem combinar */
+.inicio::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background: url("img/capa.jpg") var(--capa-posicao) / cover no-repeat;
+  filter: sepia(0.4) saturate(0.8) contrast(1.06) brightness(0.85);
+  transform: scale(1.04);
+  animation: capa 14s ease-out both;
+}
+
+/* escurece as bordas e a base para o letreiro sempre ter leitura */
+.inicio::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 80% 75% at 50% 45%, transparent 30%, rgb(16 14 12 / 0.7) 85%, rgb(16 14 12 / 0.92)),
+    linear-gradient(180deg, rgb(16 14 12 / 0.15) 0%, transparent 35%, rgb(16 14 12 / 0.7) 100%);
+}
+
+@keyframes capa {
+  from {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1.04);
+  }
 }
 
 .vitrine {
   position: relative;
-  max-width: 880px;
+  width: min(100%, 860px);
   margin-inline: auto;
-  padding: clamp(28px, 6vw, 64px) clamp(20px, 6vw, 80px) clamp(40px, 6vw, 64px);
+  padding: clamp(36px, 5vw, 56px) clamp(20px, 6vw, 80px) clamp(36px, 4vw, 52px);
   text-align: center;
-  /* janela em arco, com o caixilho em filete dourado */
-  border: 1px solid rgb(208 167 79 / 0.55);
-  border-radius: 50% 50% 6px 6px / clamp(180px, 34vw, 340px) clamp(180px, 34vw, 340px) 6px 6px;
+  /* janela em arco, vidro escurecido sobre a foto e caixilho em filete dourado */
+  border: 1px solid rgb(207 165 85 / 0.6);
+  border-radius: 50% 50% 4px 4px / clamp(180px, 30vw, 330px) clamp(180px, 30vw, 330px) 4px 4px;
+  background: linear-gradient(180deg, rgb(16 14 12 / 0.3) 0%, rgb(16 14 12 / 0.4) 45%, rgb(16 14 12 / 0.78) 100%);
+  backdrop-filter: blur(1.5px);
   box-shadow:
-    inset 0 0 0 8px var(--verde),
-    inset 0 0 0 9px rgb(208 167 79 / 0.3),
-    inset 0 -80px 120px -60px rgb(0 0 0 / 0.35);
-  background: linear-gradient(180deg, rgb(255 255 255 / 0.025), rgb(0 0 0 / 0.12));
+    inset 0 0 0 9px rgb(16 14 12 / 0.35),
+    inset 0 0 0 10px rgb(207 165 85 / 0.32),
+    0 40px 80px -40px rgb(0 0 0 / 0.8);
   overflow: hidden;
 }
 
@@ -317,18 +366,18 @@ a {
   background: linear-gradient(
     115deg,
     transparent 18%,
-    rgb(255 255 255 / 0.05) 19%,
+    rgb(255 255 255 / 0.06) 19%,
     rgb(255 255 255 / 0.02) 27%,
     transparent 28%,
     transparent 62%,
-    rgb(255 255 255 / 0.035) 63%,
+    rgb(255 255 255 / 0.04) 63%,
     transparent 67%
   );
 }
 
 .letreiro {
   margin: 0 auto;
-  max-width: 540px;
+  max-width: 560px;
 }
 
 .letreiro svg {
@@ -339,8 +388,9 @@ a {
 
 .letreiro__arco {
   font-family: var(--letra-titulo);
-  font-size: 62px;
-  letter-spacing: 9px;
+  font-weight: 900;
+  font-size: 54px;
+  letter-spacing: 8px;
 }
 
 .letreiro__nome {
@@ -349,18 +399,19 @@ a {
 }
 
 .letreiro__sombra {
-  fill: #07150f;
+  fill: #050403;
 }
 
 .letreiro__ouro {
   fill: url(#ouro);
   stroke: var(--tinta);
-  stroke-width: 2.5px;
+  stroke-width: 1.6px;
   paint-order: stroke;
 }
 
 .letreiro__brilho {
-  animation: brilho 2.6s cubic-bezier(0.45, 0, 0.25, 1) 0.6s 1 both;
+  transform: skewX(-18deg);
+  animation: brilho 2.6s cubic-bezier(0.45, 0, 0.25, 1) 0.8s 1 both;
 }
 
 @keyframes brilho {
@@ -373,24 +424,36 @@ a {
 }
 
 .inicio__oficios {
-  margin: clamp(4px, 1vw, 12px) 0 0;
-  font-size: 0.8125rem;
+  margin: 6px 0 0;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
   color: var(--ouro-claro);
 }
 
 .inicio__oficios span {
-  margin-inline: 0.5em;
-  color: var(--sangue);
+  margin-inline: 0.7em;
+  font-size: 0.7em;
+  color: var(--ouro);
+  vertical-align: 0.15em;
+}
+
+.inicio__lema {
+  margin: 22px 0 0;
+  font-family: var(--letra-titulo);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(1.625rem, 1.2rem + 1.4vw, 2.25rem);
+  line-height: 1.15;
+  color: var(--marfim);
 }
 
 .inicio__texto {
-  max-width: 34ch;
-  margin: 18px auto 0;
-  font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.25rem);
-  color: var(--marfim);
+  max-width: 44ch;
+  margin: 14px auto 0;
+  font-size: 1.0625rem;
+  color: var(--marfim-suave);
 }
 
 .inicio__acoes {
@@ -398,7 +461,7 @@ a {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 16px 28px;
+  gap: 16px 32px;
   margin-top: 32px;
 }
 
@@ -408,7 +471,7 @@ a {
   height: 30px;
   background-color: var(--papel);
   background-size: 30px 30px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23efe6cf'/%3E%3Cpath d='M0 0h11A11 11 0 0 1 0 11zM48 0v11A11 11 0 0 1 37 0zM48 48H37a11 11 0 0 1 11-11zM0 48V37a11 11 0 0 1 11 11z' fill='%238c2b23'/%3E%3Cg fill='%2314322a'%3E%3Cpath d='M24 24c-5-5-4-11 0-16 4 5 5 11 0 16z'/%3E%3Cpath d='M24 24c-5-5-4-11 0-16 4 5 5 11 0 16z' transform='rotate(90 24 24)'/%3E%3Cpath d='M24 24c-5-5-4-11 0-16 4 5 5 11 0 16z' transform='rotate(180 24 24)'/%3E%3Cpath d='M24 24c-5-5-4-11 0-16 4 5 5 11 0 16z' transform='rotate(270 24 24)'/%3E%3C/g%3E%3Ccircle cx='24' cy='24' r='2.6' fill='%23d0a74f'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23efe6d4'/%3E%3Cpath d='M0 0h11A11 11 0 0 1 0 11zM48 0v11A11 11 0 0 1 37 0zM48 48H37a11 11 0 0 1 11-11zM0 48V37a11 11 0 0 1 11 11z' fill='%23cfa555'/%3E%3Cg fill='%23100e0c'%3E%3Cpath d='M24 24c-5-5-4-11 0-16 4 5 5 11 0 16z'/%3E%3Cpath d='M24 24c-5-5-4-11 0-16 4 5 5 11 0 16z' transform='rotate(90 24 24)'/%3E%3Cpath d='M24 24c-5-5-4-11 0-16 4 5 5 11 0 16z' transform='rotate(180 24 24)'/%3E%3Cpath d='M24 24c-5-5-4-11 0-16 4 5 5 11 0 16z' transform='rotate(270 24 24)'/%3E%3C/g%3E%3Ccircle cx='24' cy='24' r='2.6' fill='%238a2c22'/%3E%3C/svg%3E");
   border-block: 3px solid var(--tinta);
 }
 
@@ -432,7 +495,7 @@ a {
 }
 
 .secao--fundo {
-  background: var(--verde-fundo);
+  background: var(--carvao);
 }
 
 /* ---------- tabela de preços ---------- */
@@ -705,7 +768,7 @@ a {
   margin: 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid var(--verde-linha);
+  border-top: 1px solid var(--linha);
 }
 
 .horarios li {
@@ -714,11 +777,11 @@ a {
   align-items: baseline;
   gap: 12px;
   padding: 16px 4px;
-  border-bottom: 1px solid var(--verde-linha);
+  border-bottom: 1px solid var(--linha);
 }
 
 .horarios__pontos {
-  border-bottom: 2px dotted var(--verde-linha);
+  border-bottom: 2px dotted var(--linha);
 }
 
 .horarios li > span:last-child {
@@ -811,6 +874,10 @@ a {
   .letreiro__brilho {
     animation: none;
     display: none;
+  }
+
+  .inicio::before {
+    animation: none;
   }
 
   .botao,

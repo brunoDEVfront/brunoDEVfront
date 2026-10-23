@@ -3,16 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Artur · Barbearia</title>
-  <meta name="description" content="Barbearia do Artur: corte, barba na navalha e toalha quente, com hora marcada. Agende pelo WhatsApp.">
-  <meta name="theme-color" content="#14322a">
-  <meta property="og:title" content="Artur · Barbearia">
-  <meta property="og:description" content="Corte e barba do jeito antigo, com hora marcada.">
+  <title>Vintage Salon · Artur Almeida | Barbearia e visagismo</title>
+  <meta name="description" content="Vintage Salon, de Artur Almeida: corte, barba e visagismo com hora marcada. Nunca foi só um corte. Agende pelo WhatsApp.">
+  <meta name="theme-color" content="#100e0c">
+  <meta property="og:title" content="Vintage Salon · Artur Almeida">
+  <meta property="og:description" content="Corte, barba e visagismo com hora marcada. Nunca foi só um corte.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="img/capa.jpg">
   <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=Ultra&family=Yellowtail&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Libre+Franklin:wght@400;500;600;700&family=Yellowtail&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,14 +21,14 @@
 
   <header class="topo">
     <div class="container topo__inner">
-      <a class="marca" href="#inicio" aria-label="Artur Barbearia, início">
-        <span class="marca__nome">Artur</span>
-        <span class="marca__oficio">Barbearia</span>
+      <a class="marca" href="#inicio" aria-label="Vintage Salon, início">
+        <span class="marca__selo" aria-hidden="true">VS</span>
+        <span class="marca__nome">Vintage Salon</span>
       </a>
       <nav class="menu" aria-label="Principal">
         <ul>
+          <li><a href="#visagismo">Visagismo</a></li>
           <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#barbeiro">O barbeiro</a></li>
           <li><a href="#galeria">Galeria</a></li>
           <li><a href="#visite">Visite</a></li>
         </ul>
@@ -37,52 +38,54 @@
   </header>
 
   <main id="conteudo">
-    <!-- INÍCIO: a vitrine com o letreiro pintado em folha de ouro -->
-    <section class="inicio" id="inicio">
+    <!-- INÍCIO: a vitrine com o letreiro em folha de ouro.
+         A foto de fundo entra sozinha quando existir img/capa.jpg -->
+    <section class="inicio" id="inicio" data-fundo="img/capa.jpg">
       <div class="container">
         <div class="vitrine">
           <h1 class="letreiro">
-            <span class="sr-only">Artur, barbearia</span>
-            <svg viewBox="110 0 580 400" aria-hidden="true" focusable="false">
+            <span class="sr-only">Vintage Salon, Artur Almeida</span>
+            <svg viewBox="80 0 640 400" aria-hidden="true" focusable="false">
               <defs>
                 <linearGradient id="ouro" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#f6e3a6"/>
-                  <stop offset=".42" stop-color="#d4ad55"/>
-                  <stop offset=".58" stop-color="#9d7428"/>
-                  <stop offset="1" stop-color="#e9c977"/>
+                  <stop offset="0" stop-color="#f7e4a8"/>
+                  <stop offset=".42" stop-color="#d6ae57"/>
+                  <stop offset=".58" stop-color="#9c7329"/>
+                  <stop offset="1" stop-color="#ebcb7a"/>
                 </linearGradient>
                 <linearGradient id="reflexo" x1="0" y1="0" x2="1" y2="0">
                   <stop offset="0" stop-color="#fff8e1" stop-opacity="0"/>
                   <stop offset=".5" stop-color="#fff8e1" stop-opacity=".85"/>
                   <stop offset="1" stop-color="#fff8e1" stop-opacity="0"/>
                 </linearGradient>
-                <path id="arco" d="M 120 250 A 300 300 0 0 1 680 250"/>
+                <path id="arco" d="M 110 250 A 310 310 0 0 1 690 250"/>
                 <clipPath id="letras">
-                  <text class="letreiro__arco"><textPath href="#arco" startOffset="50%" text-anchor="middle">BARBEARIA</textPath></text>
-                  <text class="letreiro__nome" x="400" y="340" text-anchor="middle">Artur</text>
+                  <text class="letreiro__arco"><textPath href="#arco" startOffset="50%" text-anchor="middle">VINTAGE SALON</textPath></text>
+                  <text class="letreiro__nome" x="400" y="335" text-anchor="middle">Artur</text>
                 </clipPath>
               </defs>
 
               <!-- sombra projetada, como nas letras pintadas em vidro -->
               <g class="letreiro__sombra" transform="translate(5 6)">
-                <text class="letreiro__arco"><textPath href="#arco" startOffset="50%" text-anchor="middle">BARBEARIA</textPath></text>
-                <text class="letreiro__nome" x="400" y="340" text-anchor="middle">Artur</text>
+                <text class="letreiro__arco"><textPath href="#arco" startOffset="50%" text-anchor="middle">VINTAGE SALON</textPath></text>
+                <text class="letreiro__nome" x="400" y="335" text-anchor="middle">Artur</text>
               </g>
               <g class="letreiro__ouro">
-                <text class="letreiro__arco"><textPath href="#arco" startOffset="50%" text-anchor="middle">BARBEARIA</textPath></text>
-                <text class="letreiro__nome" x="400" y="340" text-anchor="middle">Artur</text>
+                <text class="letreiro__arco"><textPath href="#arco" startOffset="50%" text-anchor="middle">VINTAGE SALON</textPath></text>
+                <text class="letreiro__nome" x="400" y="335" text-anchor="middle">Artur</text>
               </g>
               <g clip-path="url(#letras)">
-                <rect class="letreiro__brilho" x="-260" y="0" width="200" height="400" fill="url(#reflexo)" transform="skewX(-18)"/>
+                <rect class="letreiro__brilho" x="-260" y="0" width="200" height="400" fill="url(#reflexo)"/>
               </g>
             </svg>
           </h1>
 
-          <p class="inicio__oficios">Corte <span aria-hidden="true">·</span> Barba <span aria-hidden="true">·</span> Navalha</p>
-          <p class="inicio__texto">Corte e barba do jeito antigo: tesoura, navalha e toalha quente. Com hora marcada, sem espera.</p>
+          <p class="inicio__oficios">Visagismo <span aria-hidden="true">✦</span> Corte <span aria-hidden="true">✦</span> Barba</p>
+          <p class="inicio__lema">Nunca foi só um corte.</p>
+          <p class="inicio__texto">Artur Almeida estuda o seu rosto, o seu estilo e a sua rotina antes de pegar na tesoura. Atendimento individual, com hora marcada.</p>
           <div class="inicio__acoes">
             <a class="botao" href="https://wa.me/5500000000000" data-whatsapp target="_blank" rel="noopener">Agendar horário</a>
-            <a class="link" href="#servicos">Ver preços</a>
+            <a class="link" href="#servicos">Ver serviços e preços</a>
           </div>
         </div>
       </div>
@@ -90,22 +93,74 @@
 
     <div class="ladrilho" aria-hidden="true"></div>
 
-    <!-- SERVIÇOS: EDITE nomes, descrições, tempos e preços -->
-    <section class="secao" id="servicos" aria-labelledby="servicos-titulo">
+    <!-- VISAGISMO / SOBRE: EDITE o texto. A foto entra sozinha quando existir img/artur.jpg -->
+    <section class="secao secao--papel" id="visagismo" aria-labelledby="visagismo-titulo">
+      <div class="container sobre">
+        <figure class="moldura moldura--retrato" data-foto="img/artur.jpg" data-alt="Artur Almeida, visagista do Vintage Salon">
+          <div class="moldura__vazia">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.1 15.9 19 3M15.9 15.9 5 3"/></svg>
+            <span>Foto do Artur</span>
+          </div>
+        </figure>
+
+        <div class="sobre__texto">
+          <p class="chamada">Artur Almeida</p>
+          <h2 class="titulo" id="visagismo-titulo">O corte começa pelo seu rosto</h2>
+          <p>Visagista e consultor de imagem, Artur analisa o formato do rosto, o tipo de cabelo e o jeito como você vive antes de sugerir qualquer coisa. O resultado é um corte e uma barba que combinam com você, e não com a tendência do mês.</p>
+          <p>No Vintage Salon, cada cliente tem a cadeira só para ele durante o horário marcado: sem fila, sem pressa e com a conversa que o atendimento precisa.</p>
+          <ul class="sobre__selos">
+            <li>Visagismo</li>
+            <li>Consultoria de imagem</li>
+            <li>Atendimento individual</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA: três etapas, na ordem em que acontecem -->
+    <section class="secao" aria-labelledby="etapas-titulo">
       <div class="container">
         <header class="secao__cabeca">
-          <p class="chamada">Tabela</p>
+          <p class="chamada">Como funciona</p>
+          <h2 class="titulo" id="etapas-titulo">Do agendamento ao espelho</h2>
+        </header>
+        <ol class="etapas">
+          <li class="etapa">
+            <span class="etapa__num" aria-hidden="true">I</span>
+            <h3 class="etapa__titulo">Agende</h3>
+            <p>Escolha o serviço e combine o dia e o horário pelo WhatsApp.</p>
+          </li>
+          <li class="etapa">
+            <span class="etapa__num" aria-hidden="true">II</span>
+            <h3 class="etapa__titulo">Análise</h3>
+            <p>Antes de começar, Artur avalia rosto, cabelo e estilo para indicar o que funciona em você.</p>
+          </li>
+          <li class="etapa">
+            <span class="etapa__num" aria-hidden="true">III</span>
+            <h3 class="etapa__titulo">Resultado</h3>
+            <p>Corte, barba e finalização, com dicas para manter o visual em casa até a próxima visita.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS: EDITE nomes, descrições, tempos e preços -->
+    <section class="secao secao--fundo" id="servicos" aria-labelledby="servicos-titulo">
+      <div class="container">
+        <header class="secao__cabeca">
+          <p class="chamada">Tabela da casa</p>
           <h2 class="titulo" id="servicos-titulo">Serviços e preços</h2>
         </header>
 
         <div class="cartao">
+          <p class="cartao__selo" aria-hidden="true">VS</p>
           <ul class="precos">
             <li>
               <a class="preco" href="https://wa.me/5500000000000" data-whatsapp data-servico="Corte" target="_blank" rel="noopener">
                 <span class="preco__nome">Corte</span>
                 <span class="preco__pontos" aria-hidden="true"></span>
-                <span class="preco__valor">R$ 40</span>
-                <span class="preco__desc">Tesoura e máquina, do social ao degradê, com finalização. <span class="preco__tempo">40 min</span></span>
+                <span class="preco__valor">R$ 50</span>
+                <span class="preco__desc">Tesoura e máquina, com lavagem e finalização. <span class="preco__tempo">45 min</span></span>
                 <span class="preco__agendar" aria-hidden="true">Agendar</span>
               </a>
             </li>
@@ -113,8 +168,8 @@
               <a class="preco" href="https://wa.me/5500000000000" data-whatsapp data-servico="Barba" target="_blank" rel="noopener">
                 <span class="preco__nome">Barba</span>
                 <span class="preco__pontos" aria-hidden="true"></span>
-                <span class="preco__valor">R$ 35</span>
-                <span class="preco__desc">Navalha, toalha quente e balm no final. <span class="preco__tempo">30 min</span></span>
+                <span class="preco__valor">R$ 40</span>
+                <span class="preco__desc">Navalha, toalha quente e óleo de barba no final. <span class="preco__tempo">30 min</span></span>
                 <span class="preco__agendar" aria-hidden="true">Agendar</span>
               </a>
             </li>
@@ -122,17 +177,26 @@
               <a class="preco" href="https://wa.me/5500000000000" data-whatsapp data-servico="Corte e barba" target="_blank" rel="noopener">
                 <span class="preco__nome">Corte e barba</span>
                 <span class="preco__pontos" aria-hidden="true"></span>
-                <span class="preco__valor">R$ 70</span>
-                <span class="preco__desc">O serviço completo, sem pressa. <span class="preco__tempo">1h10</span></span>
+                <span class="preco__valor">R$ 85</span>
+                <span class="preco__desc">O atendimento completo, sem pressa. <span class="preco__tempo">1h15</span></span>
                 <span class="preco__agendar" aria-hidden="true">Agendar</span>
               </a>
             </li>
             <li>
-              <a class="preco" href="https://wa.me/5500000000000" data-whatsapp data-servico="Pezinho" target="_blank" rel="noopener">
-                <span class="preco__nome">Pezinho</span>
+              <a class="preco" href="https://wa.me/5500000000000" data-whatsapp data-servico="Visagismo" target="_blank" rel="noopener">
+                <span class="preco__nome">Visagismo</span>
                 <span class="preco__pontos" aria-hidden="true"></span>
-                <span class="preco__valor">R$ 15</span>
-                <span class="preco__desc">Acabamento do contorno entre um corte e outro. <span class="preco__tempo">15 min</span></span>
+                <span class="preco__valor">R$ 120</span>
+                <span class="preco__desc">Análise do rosto e do estilo, com indicação de corte, barba e cuidados. <span class="preco__tempo">1h</span></span>
+                <span class="preco__agendar" aria-hidden="true">Agendar</span>
+              </a>
+            </li>
+            <li>
+              <a class="preco" href="https://wa.me/5500000000000" data-whatsapp data-servico="Hidratação de barba" target="_blank" rel="noopener">
+                <span class="preco__nome">Hidratação de barba</span>
+                <span class="preco__pontos" aria-hidden="true"></span>
+                <span class="preco__valor">R$ 35</span>
+                <span class="preco__desc">Limpeza, hidratação e óleo para barba macia e alinhada. <span class="preco__tempo">20 min</span></span>
                 <span class="preco__agendar" aria-hidden="true">Agendar</span>
               </a>
             </li>
@@ -140,42 +204,13 @@
               <a class="preco" href="https://wa.me/5500000000000" data-whatsapp data-servico="Sobrancelha" target="_blank" rel="noopener">
                 <span class="preco__nome">Sobrancelha</span>
                 <span class="preco__pontos" aria-hidden="true"></span>
-                <span class="preco__valor">R$ 15</span>
+                <span class="preco__valor">R$ 20</span>
                 <span class="preco__desc">Limpeza e desenho na navalha. <span class="preco__tempo">10 min</span></span>
                 <span class="preco__agendar" aria-hidden="true">Agendar</span>
               </a>
             </li>
-            <li>
-              <a class="preco" href="https://wa.me/5500000000000" data-whatsapp data-servico="Corte infantil" target="_blank" rel="noopener">
-                <span class="preco__nome">Corte infantil</span>
-                <span class="preco__pontos" aria-hidden="true"></span>
-                <span class="preco__valor">R$ 35</span>
-                <span class="preco__desc">Para crianças até 12 anos. <span class="preco__tempo">30 min</span></span>
-                <span class="preco__agendar" aria-hidden="true">Agendar</span>
-              </a>
-            </li>
           </ul>
-          <p class="cartao__nota">Toque em um serviço para agendar pelo WhatsApp. Pagamento em Pix, dinheiro ou cartão.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- O BARBEIRO: EDITE o texto. A foto entra sozinha quando existir img/artur.jpg -->
-    <section class="secao secao--papel" id="barbeiro" aria-labelledby="barbeiro-titulo">
-      <div class="container barbeiro">
-        <figure class="moldura moldura--retrato" data-foto="img/artur.jpg" data-alt="Artur, o barbeiro">
-          <div class="moldura__vazia">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><path d="M8.1 15.9 19 3M15.9 15.9 5 3"/></svg>
-            <span>Foto do Artur</span>
-          </div>
-        </figure>
-
-        <div class="barbeiro__texto">
-          <p class="chamada">O barbeiro</p>
-          <h2 class="titulo" id="barbeiro-titulo">Artur, sem H.</h2>
-          <p>Durante o seu horário, a cadeira é só sua. É esse tempo que permite entender o corte que você quer, acertar a barba no detalhe e terminar com toalha quente, como nas barbearias de antigamente.</p>
-          <p>Cada cliente recebe lâmina nova e ferramentas higienizadas.</p>
-          <a class="link link--escuro" href="https://www.instagram.com/aartursemh_/" target="_blank" rel="noopener">Ver o trabalho no Instagram <span aria-hidden="true">→</span></a>
+          <p class="cartao__nota">Toque em um serviço para agendar pelo WhatsApp.</p>
         </div>
       </div>
     </section>
@@ -190,16 +225,16 @@
         </header>
 
         <div class="galeria">
-          <figure class="moldura" data-foto="img/galeria-1.jpg" data-alt="Trabalho do Artur, foto 1"><div class="moldura__vazia"><span>Foto 1</span></div></figure>
-          <figure class="moldura" data-foto="img/galeria-2.jpg" data-alt="Trabalho do Artur, foto 2"><div class="moldura__vazia"><span>Foto 2</span></div></figure>
-          <figure class="moldura" data-foto="img/galeria-3.jpg" data-alt="Trabalho do Artur, foto 3"><div class="moldura__vazia"><span>Foto 3</span></div></figure>
-          <figure class="moldura" data-foto="img/galeria-4.jpg" data-alt="Trabalho do Artur, foto 4"><div class="moldura__vazia"><span>Foto 4</span></div></figure>
-          <figure class="moldura" data-foto="img/galeria-5.jpg" data-alt="Trabalho do Artur, foto 5"><div class="moldura__vazia"><span>Foto 5</span></div></figure>
-          <figure class="moldura" data-foto="img/galeria-6.jpg" data-alt="Trabalho do Artur, foto 6"><div class="moldura__vazia"><span>Foto 6</span></div></figure>
+          <figure class="moldura" data-foto="img/galeria-1.jpg" data-alt="Trabalho do Vintage Salon, foto 1"><div class="moldura__vazia"><span>Foto 1</span></div></figure>
+          <figure class="moldura" data-foto="img/galeria-2.jpg" data-alt="Trabalho do Vintage Salon, foto 2"><div class="moldura__vazia"><span>Foto 2</span></div></figure>
+          <figure class="moldura" data-foto="img/galeria-3.jpg" data-alt="Trabalho do Vintage Salon, foto 3"><div class="moldura__vazia"><span>Foto 3</span></div></figure>
+          <figure class="moldura" data-foto="img/galeria-4.jpg" data-alt="Trabalho do Vintage Salon, foto 4"><div class="moldura__vazia"><span>Foto 4</span></div></figure>
+          <figure class="moldura" data-foto="img/galeria-5.jpg" data-alt="Trabalho do Vintage Salon, foto 5"><div class="moldura__vazia"><span>Foto 5</span></div></figure>
+          <figure class="moldura" data-foto="img/galeria-6.jpg" data-alt="Trabalho do Vintage Salon, foto 6"><div class="moldura__vazia"><span>Foto 6</span></div></figure>
         </div>
 
         <p class="galeria__mais">
-          <a class="link" href="https://www.instagram.com/aartursemh_/" target="_blank" rel="noopener">Mais cortes em @aartursemh_ <span aria-hidden="true">→</span></a>
+          <a class="link" href="https://www.instagram.com/aartursemh_/" target="_blank" rel="noopener">Mais trabalhos em @aartursemh_ <span aria-hidden="true">→</span></a>
         </p>
       </div>
     </section>
@@ -209,7 +244,7 @@
       <div class="container visite">
         <div>
           <header class="secao__cabeca secao__cabeca--esquerda">
-            <p class="chamada">Venha</p>
+            <p class="chamada">Visite</p>
             <h2 class="titulo" id="visite-titulo">Horários e endereço</h2>
           </header>
           <address class="endereco">
@@ -234,14 +269,14 @@
   <footer class="rodape">
     <div class="ladrilho" aria-hidden="true"></div>
     <div class="container rodape__inner">
-      <p class="rodape__nome">Artur</p>
-      <p class="rodape__frase">Hora marcada, toalha quente e navalha afiada.</p>
+      <p class="rodape__lema">Nunca foi só um corte.</p>
+      <p class="rodape__frase">Agende seu horário com Artur Almeida no Vintage Salon.</p>
       <a class="botao" href="https://wa.me/5500000000000" data-whatsapp target="_blank" rel="noopener">Agendar horário</a>
       <ul class="rodape__links">
         <li><a href="https://www.instagram.com/aartursemh_/" target="_blank" rel="noopener">Instagram</a></li>
         <li><a href="https://wa.me/5500000000000" data-whatsapp target="_blank" rel="noopener">WhatsApp</a></li>
       </ul>
-      <p class="rodape__direitos">© <span data-ano>2026</span> Artur Barbearia</p>
+      <p class="rodape__direitos">© <span data-ano>2026</span> Vintage Salon · Artur Almeida</p>
     </div>
   </footer>
 
