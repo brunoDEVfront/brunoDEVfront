@@ -1,0 +1,6 @@
+[
+ {"id": "hook",   "clip": "c1", "in": 0.09,  "out": 4.62,  "zoom": 1.0, "cx": 0.5, "cy": 0.5, "line": "Fala rapaziada, beleza? Eu quero passar uma visão aqui pra vocês como empreendedor, tá bom?"},
+ {"id": "dor",    "clip": "c1", "in": 5.16,  "out": 10.98, "zoom": 1.0, "cx": 0.5, "cy": 0.5, "line": "O que que acontece? Eu tenho uma dificuldade absurda aqui na minha produção, na minha operação. Como que funciona?"},
+ {"id": "rotina", "clip": "c1", "in": 11.58, "out": 25.60, "zoom": 1.0, "cx": 0.5, "cy": 0.5, "line": "Eu tô aqui cortando o cabelo, tô fazendo uma barba e eu não consigo dar atenção no meu celular, não consigo dar atenção no meu WhatsApp, nos meus clientes que vêm até mim pelo WhatsApp, pelo Instagram. Então, com essa dor, eu fui em busca de uma solução."},
+ {"id": "teaser", "clip": "c1", "in": 25.92, "out": 27.60, "zoom": 1.0, "cx": 0.5, "cy": 0.5, "line": "Como que funciona essa solução?"}
+]

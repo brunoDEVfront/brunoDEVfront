@@ -1,0 +1,58 @@
+[
+ {
+  "id": "hook",
+  "clip": "c1",
+  "in": 0.09,
+  "out": 4.62,
+  "zoom": 1.0,
+  "cx": 0.5,
+  "cy": 0.5,
+  "line": "Fala rapaziada, beleza? Eu quero passar uma vis\u00e3o aqui pra voc\u00eas como empreendedor, t\u00e1 bom?",
+  "src_in": 0.09,
+  "src_out": 4.62,
+  "frame": 0,
+  "frames": 136
+ },
+ {
+  "id": "dor",
+  "clip": "c1",
+  "in": 5.16,
+  "out": 10.98,
+  "zoom": 1.0,
+  "cx": 0.5,
+  "cy": 0.5,
+  "line": "O que que acontece? Eu tenho uma dificuldade absurda aqui na minha produ\u00e7\u00e3o, na minha opera\u00e7\u00e3o. Como que funciona?",
+  "src_in": 5.16,
+  "src_out": 10.98,
+  "frame": 136,
+  "frames": 175
+ },
+ {
+  "id": "rotina",
+  "clip": "c1",
+  "in": 11.58,
+  "out": 25.6,
+  "zoom": 1.0,
+  "cx": 0.5,
+  "cy": 0.5,
+  "line": "Eu t\u00f4 aqui cortando o cabelo, t\u00f4 fazendo uma barba e eu n\u00e3o consigo dar aten\u00e7\u00e3o no meu celular, n\u00e3o consigo dar aten\u00e7\u00e3o no meu WhatsApp, nos meus clientes que v\u00eam at\u00e9 mim pelo WhatsApp, pelo Instagram. Ent\u00e3o, com essa dor, eu fui em busca de uma solu\u00e7\u00e3o.",
+  "src_in": 11.58,
+  "src_out": 25.6,
+  "frame": 311,
+  "frames": 421
+ },
+ {
+  "id": "teaser",
+  "clip": "c1",
+  "in": 25.92,
+  "out": 27.6,
+  "zoom": 1.0,
+  "cx": 0.5,
+  "cy": 0.5,
+  "line": "Como que funciona essa solu\u00e7\u00e3o?",
+  "src_in": 25.92,
+  "src_out": 27.6,
+  "frame": 732,
+  "frames": 51
+ }
+]
