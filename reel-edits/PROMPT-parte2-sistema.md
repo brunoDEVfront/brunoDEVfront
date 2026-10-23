@@ -7,6 +7,13 @@ Use os skills disponíveis:
 - **`/motion-design`**: princípios de tempo, curvas de aceleração e coreografia.
 - **`/video-edit`**: se ele gravar mais falas para a câmera.
 
+### Instalação dos skills (faça antes de começar, se algum não aparecer na lista de skills)
+
+- **video-edit:** `git clone https://github.com/tenfoldmarc/video-edit-skill "$HOME/.claude/skills/video-edit"`. Na primeira vez, rode `/video-edit`; ele faz a configuração inicial sozinho.
+- **motion-design:** `npx skills add LottieFiles/motion-design-skill`. Se não funcionar, clone `https://github.com/lottiefiles/motion-design-skill` e copie a **pasta inteira** `skills/motion-design` para `$HOME/.claude/skills/motion-design`. Não copie só o SKILL.md, porque ele aponta para outros arquivos da pasta.
+- **video-shotcraft:** é um plugin da conta claude.ai do usuário e costuma aparecer sozinho nas sessões do Claude Code. Se não aparecer, peça ao usuário para ativá-lo nos plugins da conta.
+- **Neste repositório:** se você estiver no `brunoDEVfront`, na branch `claude/focused-cray-kxwdyl`, o video-edit e o motion-design já estão em `.claude/skills/`.
+
 ---
 
 ## 1. Contexto do vídeo
