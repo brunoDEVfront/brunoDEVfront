@@ -19,76 +19,71 @@
 <body>
   <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
-  <header class="topo">
+  <header class="topo" data-topo>
     <div class="container topo__inner">
       <a class="marca" href="#inicio" aria-label="Vintage Salon, início">
         <span class="marca__selo" aria-hidden="true">VS</span>
-        <span class="marca__nome">Vintage Salon</span>
+        <span class="marca__nome">Vintage <span>Salon</span></span>
       </a>
       <nav class="menu" aria-label="Principal">
         <ul>
-          <li><a href="#visagismo">Visagismo</a></li>
+          <li><a href="#inicio">Início</a></li>
           <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#visagismo">Visagismo</a></li>
           <li><a href="#galeria">Galeria</a></li>
-          <li><a href="#visite">Visite</a></li>
+          <li><a href="#visite">Contato</a></li>
         </ul>
       </nav>
-      <a class="botao botao--compacto" href="https://wa.me/5500000000000" data-whatsapp target="_blank" rel="noopener">Agendar horário</a>
+      <a class="botao botao--compacto" href="https://wa.me/5500000000000" data-whatsapp target="_blank" rel="noopener">
+        <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+        Agendar horário
+      </a>
     </div>
   </header>
 
   <main id="conteudo">
-    <!-- INÍCIO: a vitrine com o letreiro em folha de ouro.
-         A foto de fundo entra sozinha quando existir img/capa.jpg -->
-    <section class="inicio" id="inicio" data-fundo="img/capa.jpg">
-      <div class="container">
-        <div class="vitrine">
-          <h1 class="letreiro">
-            <span class="sr-only">Vintage Salon, Artur Almeida</span>
-            <svg viewBox="80 0 640 400" aria-hidden="true" focusable="false">
-              <defs>
-                <linearGradient id="ouro" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="#f7e4a8"/>
-                  <stop offset=".42" stop-color="#d6ae57"/>
-                  <stop offset=".58" stop-color="#9c7329"/>
-                  <stop offset="1" stop-color="#ebcb7a"/>
-                </linearGradient>
-                <linearGradient id="reflexo" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0" stop-color="#fff8e1" stop-opacity="0"/>
-                  <stop offset=".5" stop-color="#fff8e1" stop-opacity=".85"/>
-                  <stop offset="1" stop-color="#fff8e1" stop-opacity="0"/>
-                </linearGradient>
-                <path id="arco" d="M 110 250 A 310 310 0 0 1 690 250"/>
-                <clipPath id="letras">
-                  <text class="letreiro__arco"><textPath href="#arco" startOffset="50%" text-anchor="middle">VINTAGE SALON</textPath></text>
-                  <text class="letreiro__nome" x="400" y="335" text-anchor="middle">Artur</text>
-                </clipPath>
-              </defs>
-
-              <!-- sombra projetada, como nas letras pintadas em vidro -->
-              <g class="letreiro__sombra" transform="translate(5 6)">
-                <text class="letreiro__arco"><textPath href="#arco" startOffset="50%" text-anchor="middle">VINTAGE SALON</textPath></text>
-                <text class="letreiro__nome" x="400" y="335" text-anchor="middle">Artur</text>
-              </g>
-              <g class="letreiro__ouro">
-                <text class="letreiro__arco"><textPath href="#arco" startOffset="50%" text-anchor="middle">VINTAGE SALON</textPath></text>
-                <text class="letreiro__nome" x="400" y="335" text-anchor="middle">Artur</text>
-              </g>
-              <g clip-path="url(#letras)">
-                <rect class="letreiro__brilho" x="-260" y="0" width="200" height="400" fill="url(#reflexo)"/>
-              </g>
-            </svg>
-          </h1>
-
-          <p class="inicio__oficios">Visagismo <span aria-hidden="true">✦</span> Corte <span aria-hidden="true">✦</span> Barba</p>
-          <p class="inicio__lema">Nunca foi só um corte.</p>
-          <p class="inicio__texto">Artur Almeida estuda o seu rosto, o seu estilo e a sua rotina antes de pegar na tesoura. Atendimento individual, com hora marcada.</p>
-          <div class="inicio__acoes">
-            <a class="botao" href="https://wa.me/5500000000000" data-whatsapp target="_blank" rel="noopener">Agendar horário</a>
-            <a class="link" href="#servicos">Ver serviços e preços</a>
-          </div>
+    <!-- INÍCIO: a foto de fundo entra sozinha quando existir img/capa.jpg -->
+    <section class="inicio" id="inicio">
+      <div class="container inicio__inner">
+        <p class="inicio__sobretitulo">Artur Almeida <span aria-hidden="true">·</span> Visagista</p>
+        <h1 class="inicio__titulo">Nunca foi <em>só um corte.</em></h1>
+        <p class="inicio__texto">Corte, barba e visagismo com atendimento individual. Antes da tesoura, Artur estuda o seu rosto, o seu estilo e a sua rotina.</p>
+        <div class="inicio__acoes">
+          <a class="botao" href="https://wa.me/5500000000000" data-whatsapp target="_blank" rel="noopener">
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="1.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+            Agendar horário
+          </a>
+          <a class="botao botao--contorno" href="#servicos">Ver serviços</a>
         </div>
+        <ul class="inicio__destaques">
+          <li>
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="9.5" rx="6" ry="7"/><path d="M9.5 6.5c.8-.9 1.7-1.3 2.8-1.3M12 16.5V21M9 21h6"/></svg>
+            Visagismo
+          </li>
+          <li>
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.5 21c0-4.1 3.4-7 7.5-7s7.5 2.9 7.5 7"/></svg>
+            Atendimento individual
+          </li>
+          <li>
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
+            Hora marcada
+          </li>
+          <li>
+            <svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6.5" cy="17.5" r="3"/><circle cx="17.5" cy="17.5" r="3"/><path d="M8.6 15.4 19 3.5M15.4 15.4 5 3.5"/></svg>
+            Corte e barba
+          </li>
+        </ul>
       </div>
+
+      <!-- selo vintage girando devagar -->
+      <svg class="inicio__selo" viewBox="0 0 160 160" aria-hidden="true">
+        <defs><path id="selo-circulo" d="M80 80m-58 0a58 58 0 1 1 116 0a58 58 0 1 1-116 0"/></defs>
+        <g class="inicio__selo-giro">
+          <text><textPath href="#selo-circulo">VINTAGE SALON ✦ VISAGISMO ✦ BARBEARIA ✦</textPath></text>
+        </g>
+        <circle cx="80" cy="80" r="40" fill="none" stroke="currentColor" stroke-width=".8"/>
+        <text class="inicio__selo-vs" x="80" y="91" text-anchor="middle">VS</text>
+      </svg>
     </section>
 
     <div class="ladrilho" aria-hidden="true"></div>

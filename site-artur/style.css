@@ -22,8 +22,8 @@
   --letra-script: "Yellowtail", "Brush Script MT", cursive;
   --letra-texto: "Libre Franklin", "Franklin Gothic", system-ui, sans-serif;
 
-  --largura: 1120px;
-  --altura-topo: 72px;
+  --largura: 1240px;
+  --altura-topo: 68px;
   --respiro: clamp(72px, 10vw, 128px);
 }
 
@@ -116,37 +116,50 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 54px;
-  padding: 0 30px;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 28px;
   background: var(--ouro);
   color: var(--tinta);
   font-family: var(--letra-texto);
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  border-radius: 2px;
-  /* filete duplo, como nos rótulos impressos */
-  box-shadow: inset 0 0 0 3px var(--ouro), inset 0 0 0 4px var(--tinta);
-  transition: background-color 0.2s, transform 0.2s;
+  border: 1px solid var(--ouro);
+  border-radius: 1px;
+  box-shadow: 0 10px 30px -10px rgb(207 165 85 / 0.6);
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 
 .botao:hover {
   background: var(--ouro-claro);
-  box-shadow: inset 0 0 0 3px var(--ouro-claro), inset 0 0 0 4px var(--tinta);
+  border-color: var(--ouro-claro);
+  box-shadow: 0 14px 34px -12px rgb(207 165 85 / 0.7);
 }
 
 .botao:active {
   transform: translateY(1px);
 }
 
+.botao--contorno {
+  background: transparent;
+  color: var(--ouro-claro);
+  border-color: rgb(207 165 85 / 0.6);
+  box-shadow: none;
+}
+
+.botao--contorno:hover {
+  background: rgb(207 165 85 / 0.1);
+  border-color: var(--ouro);
+  color: var(--ouro-claro);
+  box-shadow: none;
+}
+
 .botao--compacto {
-  min-height: 42px;
-  padding: 0 18px;
-  font-size: 0.6875rem;
-  letter-spacing: 0.14em;
+  min-height: 44px;
 }
 
 .link {
@@ -204,15 +217,21 @@ a {
   text-align: left;
 }
 
-/* ---------- topo ---------- */
+/* ---------- topo ----------
+   Fica transparente sobre a foto e ganha fundo ao rolar a página. */
 
 .topo {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  inset: 0 0 auto;
   z-index: 50;
-  background: rgb(16 14 12 / 0.88);
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.3s, border-color 0.3s, backdrop-filter 0.3s;
+}
+
+.topo.is-rolado {
+  background: rgb(16 14 12 / 0.9);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgb(207 165 85 / 0.22);
+  border-bottom-color: rgb(207 165 85 / 0.2);
 }
 
 .topo__inner {
@@ -233,8 +252,8 @@ a {
 .marca__selo {
   display: grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border: 1px solid var(--ouro);
   border-radius: 50%;
   box-shadow: inset 0 0 0 3px var(--preto), inset 0 0 0 4px rgb(207 165 85 / 0.5);
@@ -242,17 +261,20 @@ a {
   font-style: italic;
   font-weight: 700;
   font-size: 0.9375rem;
-  letter-spacing: -0.02em;
   color: var(--ouro);
 }
 
 .marca__nome {
   font-family: var(--letra-titulo);
-  font-weight: 700;
-  font-size: 0.9375rem;
-  letter-spacing: 0.24em;
+  font-weight: 800;
+  font-size: 1.0625rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--marfim);
+}
+
+.marca__nome span {
+  color: var(--ouro);
 }
 
 .menu {
@@ -261,208 +283,254 @@ a {
 
 .menu ul {
   display: flex;
-  gap: 36px;
+  gap: 34px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .menu a {
+  position: relative;
   font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-weight: 500;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--marfim-suave);
   transition: color 0.2s;
 }
 
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -8px;
+  height: 1px;
+  background: var(--ouro);
+  transform: scaleX(0);
+  transition: transform 0.25s;
+}
+
 .menu a:hover {
   color: var(--ouro-claro);
 }
 
-@media (min-width: 900px) {
+.menu a:hover::after {
+  transform: scaleX(1);
+}
+
+@media (min-width: 1000px) {
   .menu {
     display: block;
   }
 }
 
-/* ---------- início: a vitrine ----------
+.icone {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- início ----------
    A foto de fundo é img/capa.jpg. Enquanto ela não existir,
    fica só o fundo escuro. Para ajustar o enquadramento da foto,
-   mude --capa-posicao (ex.: "center top", "60% 30%"). */
+   mude --capa-posicao (ex.: "right center", "70% 20%"). */
 
 .inicio {
-  --capa-posicao: center 30%;
+  --capa-posicao: 70% center;
   position: relative;
   isolation: isolate;
   display: grid;
   align-items: center;
-  min-height: calc(100vh - var(--altura-topo));
-  min-height: calc(100svh - var(--altura-topo));
-  padding-block: 48px;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-block: calc(var(--altura-topo) + 48px) 64px;
   overflow: hidden;
   background:
-    radial-gradient(ellipse 60% 55% at 50% 45%, rgb(207 165 85 / 0.12), transparent 70%),
+    radial-gradient(ellipse 45% 65% at 78% 45%, rgb(207 165 85 / 0.1), transparent 70%),
     var(--preto);
 }
 
-/* a foto, com tratamento de foto antiga para qualquer imagem combinar */
+/* a foto, com um leve tom de foto antiga */
 .inicio::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -2;
   background: url("img/capa.jpg") var(--capa-posicao) / cover no-repeat;
-  filter: sepia(0.4) saturate(0.8) contrast(1.06) brightness(0.85);
-  transform: scale(1.04);
-  animation: capa 14s ease-out both;
+  filter: sepia(0.28) saturate(0.85) contrast(1.06) brightness(0.92);
+  animation: capa 12s ease-out both;
 }
 
-/* escurece as bordas e a base para o letreiro sempre ter leitura */
+/* escurece o lado do texto, o topo e a base */
 .inicio::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(ellipse 80% 75% at 50% 45%, transparent 30%, rgb(16 14 12 / 0.7) 85%, rgb(16 14 12 / 0.92)),
-    linear-gradient(180deg, rgb(16 14 12 / 0.15) 0%, transparent 35%, rgb(16 14 12 / 0.7) 100%);
+    linear-gradient(90deg, rgb(16 14 12 / 0.97) 0%, rgb(16 14 12 / 0.88) 32%, rgb(16 14 12 / 0.45) 62%, rgb(16 14 12 / 0.2) 100%),
+    linear-gradient(0deg, var(--preto) 0%, transparent 32%),
+    linear-gradient(180deg, rgb(16 14 12 / 0.65) 0%, transparent 22%);
 }
 
 @keyframes capa {
   from {
-    transform: scale(1.1);
+    transform: scale(1.08);
   }
   to {
-    transform: scale(1.04);
+    transform: scale(1);
   }
 }
 
-.vitrine {
+.inicio__inner {
   position: relative;
-  width: min(100%, 860px);
-  margin-inline: auto;
-  padding: clamp(36px, 5vw, 56px) clamp(20px, 6vw, 80px) clamp(36px, 4vw, 52px);
-  text-align: center;
-  /* janela em arco, vidro escurecido sobre a foto e caixilho em filete dourado */
-  border: 1px solid rgb(207 165 85 / 0.6);
-  border-radius: 50% 50% 4px 4px / clamp(180px, 30vw, 330px) clamp(180px, 30vw, 330px) 4px 4px;
-  background: linear-gradient(180deg, rgb(16 14 12 / 0.3) 0%, rgb(16 14 12 / 0.4) 45%, rgb(16 14 12 / 0.78) 100%);
-  backdrop-filter: blur(1.5px);
-  box-shadow:
-    inset 0 0 0 9px rgb(16 14 12 / 0.35),
-    inset 0 0 0 10px rgb(207 165 85 / 0.32),
-    0 40px 80px -40px rgb(0 0 0 / 0.8);
-  overflow: hidden;
 }
 
-/* reflexos do vidro */
-.vitrine::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    115deg,
-    transparent 18%,
-    rgb(255 255 255 / 0.06) 19%,
-    rgb(255 255 255 / 0.02) 27%,
-    transparent 28%,
-    transparent 62%,
-    rgb(255 255 255 / 0.04) 63%,
-    transparent 67%
-  );
-}
-
-.letreiro {
-  margin: 0 auto;
-  max-width: 560px;
-}
-
-.letreiro svg {
-  width: 100%;
-  height: auto;
-  overflow: visible;
-}
-
-.letreiro__arco {
-  font-family: var(--letra-titulo);
-  font-weight: 900;
-  font-size: 54px;
-  letter-spacing: 8px;
-}
-
-.letreiro__nome {
-  font-family: var(--letra-script);
-  font-size: 210px;
-}
-
-.letreiro__sombra {
-  fill: #050403;
-}
-
-.letreiro__ouro {
-  fill: url(#ouro);
-  stroke: var(--tinta);
-  stroke-width: 1.6px;
-  paint-order: stroke;
-}
-
-.letreiro__brilho {
-  transform: skewX(-18deg);
-  animation: brilho 2.6s cubic-bezier(0.45, 0, 0.25, 1) 0.8s 1 both;
-}
-
-@keyframes brilho {
-  from {
-    transform: skewX(-18deg) translateX(0);
-  }
-  to {
-    transform: skewX(-18deg) translateX(1300px);
-  }
-}
-
-.inicio__oficios {
-  margin: 6px 0 0;
+.inicio__sobretitulo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 22px;
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.34em;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: var(--ouro-claro);
-}
-
-.inicio__oficios span {
-  margin-inline: 0.7em;
-  font-size: 0.7em;
   color: var(--ouro);
-  vertical-align: 0.15em;
 }
 
-.inicio__lema {
-  margin: 22px 0 0;
+.inicio__sobretitulo::before {
+  content: "";
+  width: 44px;
+  height: 1px;
+  background: var(--ouro);
+}
+
+.inicio__sobretitulo span {
+  color: var(--marfim-suave);
+}
+
+.inicio__titulo {
+  max-width: 11ch;
+  margin: 0;
   font-family: var(--letra-titulo);
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(1.625rem, 1.2rem + 1.4vw, 2.25rem);
-  line-height: 1.15;
+  font-weight: 800;
+  font-size: clamp(3rem, 1.5rem + 3.6vw, 4.75rem);
+  line-height: 0.98;
+  /* tamanho ótico menor: traços finos mais encorpados, menos "revista" */
+  font-optical-sizing: none;
+  font-variation-settings: "opsz" 18;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
   color: var(--marfim);
 }
 
+/* o toque vintage: a segunda linha em itálico dourado */
+.inicio__titulo em {
+  display: block;
+  font-style: italic;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: -0.015em;
+  /* dourado em degradê, como folha de ouro */
+  background: linear-gradient(180deg, var(--ouro-claro) 0%, var(--ouro) 55%, #a8803a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: 0.06em;
+}
+
 .inicio__texto {
-  max-width: 44ch;
-  margin: 14px auto 0;
-  font-size: 1.0625rem;
+  max-width: 32rem;
+  margin: 26px 0 0;
+  font-size: 1rem;
+  line-height: 1.65;
   color: var(--marfim-suave);
 }
 
 .inicio__acoes {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 16px 32px;
-  margin-top: 32px;
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.inicio__destaques {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 0;
+  margin: 52px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.inicio__destaques li {
+  display: grid;
+  gap: 12px;
+  padding-right: 28px;
+  margin-right: 28px;
+  border-right: 1px solid rgb(207 165 85 / 0.22);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--marfim-suave);
+}
+
+.inicio__destaques li:last-child {
+  border-right: 0;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.inicio__destaques .icone {
+  width: 26px;
+  height: 26px;
+  color: var(--ouro);
+}
+
+/* selo vintage no canto */
+.inicio__selo {
+  position: absolute;
+  right: clamp(24px, 5vw, 80px);
+  bottom: clamp(32px, 7vh, 72px);
+  width: 132px;
+  height: 132px;
+  color: var(--ouro);
+  opacity: 0.9;
+}
+
+.inicio__selo text {
+  fill: currentColor;
+  font-family: var(--letra-texto);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 3.6px;
+}
+
+.inicio__selo .inicio__selo-vs {
+  font-family: var(--letra-titulo);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 0;
+}
+
+.inicio__selo-giro {
+  transform-origin: 80px 80px;
+  animation: giro 40s linear infinite;
+}
+
+@keyframes giro {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ---------- faixa de ladrilho hidráulico ---------- */
@@ -876,7 +944,8 @@ a {
     display: none;
   }
 
-  .inicio::before {
+  .inicio::before,
+  .inicio__selo-giro {
     animation: none;
   }
 

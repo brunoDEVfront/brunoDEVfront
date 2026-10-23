@@ -11,6 +11,12 @@ document.querySelectorAll("[data-whatsapp]").forEach((link) => {
   link.href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
 });
 
+// Topo transparente sobre a foto; ganha fundo depois que a página rola.
+const topo = document.querySelector("[data-topo]");
+const marcarTopo = () => topo.classList.toggle("is-rolado", window.scrollY > 24);
+marcarTopo();
+window.addEventListener("scroll", marcarTopo, { passive: true });
+
 // Fotos: cada moldura com data-foto mostra a imagem assim que o arquivo
 // existir na pasta img/. Enquanto não existir, fica o espaço reservado.
 document.querySelectorAll("[data-foto]").forEach((moldura) => {
